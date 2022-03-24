@@ -55,6 +55,9 @@ document.addEventListener("keydown", function(event) {
     if(event.key === ","){
         comma();
     }
+    if(event.key === "Backspace"){
+        ac();
+    }
 });
 
 function zero() {
