@@ -48,7 +48,7 @@ document.addEventListener("keydown", function(event) {
     if(event.key === "="){
         calc();
     }
-    if(event.key === "enter"){
+    if(event.key === "Enter"){
         calc();
     }
     if(event.key === ","){
