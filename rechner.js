@@ -1,6 +1,7 @@
 var nDisplay = "0";
 var n = 0;
 var calcType;
+var acceptInput = true;
 
 document.addEventListener("keydown", function(event) {
     if(event.key === "0"){
@@ -55,128 +56,147 @@ document.addEventListener("keydown", function(event) {
         comma();
     }
 });
+
 function zero() {
-    if(nDisplay != "0"){
+    if(nDisplay != "0" && acceptInput){
         nDisplay = nDisplay + "0";
         manageDisplay(nDisplay);
     }
 }
 
 function one() {
-    if(nDisplay == "0"){
-        nDisplay = "1";
+    if(acceptInput){
+        if(nDisplay == "0"){
+            nDisplay = "1";
+        }
+        else if(nDisplay == "-0"){
+            nDisplay = "-1";
+        }
+        else{
+            nDisplay = nDisplay + "1";
+        }
+        manageDisplay(nDisplay);
     }
-    else if(nDisplay == "-0"){
-        nDisplay = "-1";
-    }
-    else{
-        nDisplay = nDisplay + "1";
-    }
-    manageDisplay(nDisplay);
 }
 
 function two() {
-    if(nDisplay == "0"){
-        nDisplay = "2";
+    if(acceptInput){
+        if(nDisplay == "0"){
+            nDisplay = "2";
+        }
+        else if(nDisplay == "-0"){
+            nDisplay = "-2";
+        }
+        else{
+            nDisplay = nDisplay + "2";
+        }
+        manageDisplay(nDisplay);
     }
-    else if(nDisplay == "-0"){
-        nDisplay = "-2";
-    }
-    else{
-        nDisplay = nDisplay + "2";
-    }
-    manageDisplay(nDisplay);
 }
 
 function three() {
-    if(nDisplay == "0"){
-        nDisplay = "3";
+    if(acceptInput){
+        if(nDisplay == "0"){
+            nDisplay = "3";
+        }
+        else if(nDisplay == "-0"){
+            nDisplay = "-3";
+        }
+        else{
+            nDisplay = nDisplay + "3";
+        }
+        manageDisplay(nDisplay);
     }
-    else if(nDisplay == "-0"){
-        nDisplay = "-3";
-    }
-    else{
-        nDisplay = nDisplay + "3";
-    }
-    manageDisplay(nDisplay);
 }
 
 function four() {
-    if(nDisplay == "0"){
-        nDisplay = "4";
+    if(acceptInput){
+        if(nDisplay == "0"){
+            nDisplay = "4";
+        }
+        else if(nDisplay == "-0"){
+            nDisplay = "-4";
+        }
+        else{
+            nDisplay = nDisplay + "4";
+        }
+        manageDisplay(nDisplay);
     }
-    else if(nDisplay == "-0"){
-        nDisplay = "-4";
-    }
-    else{
-        nDisplay = nDisplay + "4";
-    }
-    manageDisplay(nDisplay);
 }
 
 function five() {
-    if(nDisplay == "0"){
-        nDisplay = "5";
+    if(acceptInput){
+        if(nDisplay == "0"){
+            nDisplay = "5";
+        }
+        else if(nDisplay == "-0"){
+            nDisplay = "-5";
+        }
+        else{
+            nDisplay = nDisplay + "5";
+        }
+        manageDisplay(nDisplay);
     }
-    else if(nDisplay == "-0"){
-        nDisplay = "-5";
-    }
-    else{
-        nDisplay = nDisplay + "5";
-    }
-    manageDisplay(nDisplay);
 }
 
 function six() {
-    if(nDisplay == "0"){
-        nDisplay = "6";
+    if(acceptInput){
+        if(nDisplay == "0"){
+            nDisplay = "6";
+        }
+        else if(nDisplay == "-0"){
+            nDisplay = "-6";
+        }
+        else{
+            nDisplay = nDisplay + "6";
+        }
+        manageDisplay(nDisplay);
     }
-    else if(nDisplay == "-0"){
-        nDisplay = "-6";
-    }
-    else{
-        nDisplay = nDisplay + "6";
-    }
-    manageDisplay(nDisplay);
 }
 
 function seven() {
-    if(nDisplay == "0"){
-        nDisplay = "7";
+    if(acceptInput){
+        if(nDisplay == "0"){
+            nDisplay = "7";
+        }
+        else if(nDisplay == "-0"){
+            nDisplay = "-7";
+        }
+        else{
+            nDisplay = nDisplay + "7";
+        }
+        manageDisplay(nDisplay);
     }
-    else if(nDisplay == "-0"){
-        nDisplay = "-7";
-    }
-    else{
-        nDisplay = nDisplay + "7";
-    }
-    manageDisplay(nDisplay);
 }
 
 function eight() {
-    if(nDisplay == "0"){
-        nDisplay = "8";
+    if(acceptInput){
+        if(nDisplay == "0"){
+            nDisplay = "8";
+        }
+        else if(nDisplay == "-0"){
+            nDisplay = "-8";
+        }
+        else{
+            nDisplay = nDisplay + "8";
+        }
+        manageDisplay(nDisplay);
     }
-    else if(nDisplay == "-0"){
-        nDisplay = "-8";
-    }
-    else{
-        nDisplay = nDisplay + "8";
-    }
-    manageDisplay(nDisplay);
 }
 
 function nine() {
-    if(nDisplay == "0"){
-        nDisplay = "9";
+    if(acceptInput){
+        if(nDisplay == "0"){
+            nDisplay = "9";
+        }
+        else if(nDisplay == "-0"){
+            nDisplay = "-9";
+        }
+        else{
+            nDisplay = nDisplay + "9";
+        }
+        manageDisplay(nDisplay);
     }
-    else if(nDisplay == "-0"){
-        nDisplay = "-9";
-    }
-    else{
-        nDisplay = nDisplay + "9";
-    }
-    manageDisplay(nDisplay);
 }
 
 function ac() {
@@ -210,6 +230,7 @@ function percent() {
             nDisplay = n / nDisplay%n;
         }
         manageDisplay(nDisplay);
+        acceptInput = false;
     }
 }
 
@@ -217,24 +238,28 @@ function add() {
     n = convert(nDisplay);
     nDisplay = "0";
     calcType = "+";
+    acceptInput = true;
 }
 
 function subtract() {
     n = convert(nDisplay);
     nDisplay = "0";
     calcType = "-";
+    acceptInput = true;
 }
 
 function multiply() {
     n = convert(nDisplay);
     nDisplay = "0";
     calcType = "*";
+    acceptInput = true;
 }
 
 function divide() {
     n = convert(nDisplay);
     nDisplay = "0";
     calcType = "/";
+    acceptInput = true;
 }
 
 function calc() {
@@ -257,6 +282,7 @@ function calc() {
     nDisplay = nDisplay.replace(".", ",");
     manageDisplay(nDisplay);
     n = 0;
+    acceptInput = false;
 }
 
 function comma() {
