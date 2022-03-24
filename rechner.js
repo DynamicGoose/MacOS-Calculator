@@ -3,25 +3,25 @@ var n = 0;
 var calcType;
 
 document.addEventListener("keydown", function(event) {
-    if(event.key == "0"){
+    if(event.key === "0"){
         zero();
     }
-    if(event.key == "1"){
+    if(event.key === "1"){
         one();
     }
-    if(event.key == "2"){
+    if(event.key === "2"){
         two();
     }
-    if(event.key == "3"){
+    if(event.key === "3"){
         three();
     }
-    if(event.key == "4"){
+    if(event.key === "4"){
         four();
     }
-    if(event.key == "5"){
+    if(event.key === "5"){
         five();
     }
-    if(event.key == "6"){
+    if(event.key === "6"){
         six();
     }
     if(event.key === "7"){
@@ -51,7 +51,7 @@ document.addEventListener("keydown", function(event) {
     if(event.key === "enter"){
         calc();
     }
-    if(event.key == ","){
+    if(event.key === ","){
         comma();
     }
 });
