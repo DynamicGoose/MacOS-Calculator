@@ -206,6 +206,7 @@ function ac() {
     n = 0;
     nDisplay = "0";
     manageDisplay(nDisplay);
+    acceptInput = true;
 }
 
 function inverse() {
