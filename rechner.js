@@ -24,28 +24,31 @@ document.addEventListener("keydown", function(event) {
     if(event.key == "6"){
         six();
     }
-    if(event.key == "7"){
+    if(event.key === "7"){
         seven();
     }
-    if(event.key == "8"){
+    if(event.key === "8"){
         eight();
     }
-    if(event.key == "9"){
+    if(event.key === "9"){
         nine();
     }
-    if(event.key == "+"){
+    if(event.key === "+"){
         add();
     }
-    if(event.key == "-"){
+    if(event.key === "-"){
         subtract();
     }
-    if(event.key == "*"){
+    if(event.key === "*"){
         multiply();
     }
-    if(event.key == "/"){
+    if(event.key === "/"){
         divide();
     }
-    if(event.key == "="){
+    if(event.key === "="){
+        calc();
+    }
+    if(event.key === "enter"){
         calc();
     }
     if(event.key == ","){
