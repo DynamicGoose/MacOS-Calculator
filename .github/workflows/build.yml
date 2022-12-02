@@ -1,5 +1,10 @@
 name: Build and Publish
 
+env:
+  GHR_COMPRESS: xz
+  GHR_PATH: build/
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 on:
   push:
     branches: [ "main" ]
