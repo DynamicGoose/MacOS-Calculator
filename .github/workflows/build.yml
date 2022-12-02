@@ -1,10 +1,5 @@
 name: Build and Publish
 
-env:
-  GHR_COMPRESS: xz
-  GHR_PATH: build/
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 on:
   push:
     branches: [ "main" ]
@@ -23,8 +18,15 @@ jobs:
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
-
-    - name: GitHub Releases
-      # You may pin to the exact commit or the version.
-      # uses: fnkr/github-action-ghr@96b1448dc6162f370067e1de51e856e733a76b4f
-      uses: fnkr/github-action-ghr@v1.3
+        
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release
+        uses: fnkr/github-action-ghr@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GHR_COMPRESS: xz
+          GHR_PATH: build/
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
