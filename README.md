@@ -1,4 +1,4 @@
-# MacOs-Calculator
+# MacOS-Calculator
 The calculator app from MacOS written in Javascript, HTML nad CSS
 
 # Usage
