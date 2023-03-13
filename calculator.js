@@ -37,6 +37,9 @@ document.addEventListener("keydown", function(event) {
     if(event.key === "+"){
         add();
     }
+    if(event.key === "%"){
+        modulus();
+    }
     if(event.key === "-"){
         subtract();
     }
@@ -219,23 +222,11 @@ function inverse() {
     manageDisplay(nDisplay);
 }
 
-function percent() {
-    if(n != 0){
-        if(calcType == "+"){
-            nDisplay = n + nDisplay%n;
-        }
-        else if(calcType == "-"){
-            nDisplay = n - nDisplay%n;
-        }
-        else if(calcType == "*"){
-            nDisplay = n * nDisplay%n;
-        }
-        else if(calcType == "/"){
-            nDisplay = n / nDisplay%n;
-        }
-        manageDisplay(nDisplay);
-        acceptInput = false;
-    }
+function modulus() {
+    n = convert(nDisplay);
+    nDisplay = "0";
+    calcType = "%";
+    acceptInput = true;
 }
 
 function add() {
@@ -281,6 +272,9 @@ function calc() {
     }
     else if(calcType == "/"){
         n = n / convert(nDisplay);
+    }
+    else if(calcType == "%"){
+        n = n % convert(nDisplay);
     }
     nDisplay = n.toString();
     nDisplay = nDisplay.replace(".", ",");
